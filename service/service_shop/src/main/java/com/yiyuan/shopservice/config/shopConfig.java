@@ -2,6 +2,7 @@ package com.yiyuan.shopservice.config;
 
 
 
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +27,10 @@ public class shopConfig implements WebMvcConfigurer {
         // addResourceLocations: （ file: + 存储图片的路径）
         registry.addResourceHandler("/images/**").addResourceLocations("file:" + "D:\\IDEA\\yiyuan_parent\\service\\service_shop\\src\\main\\resources\\static\\images\\");
     }
-
+    //分页插件
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
+    }
 
 }
