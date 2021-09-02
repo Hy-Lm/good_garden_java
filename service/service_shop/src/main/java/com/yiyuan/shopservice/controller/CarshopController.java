@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yiyuan.shopservice.entity.Carshop;
 import com.yiyuan.shopservice.entity.InfoPage;
+import com.yiyuan.shopservice.entity.Result;
 import com.yiyuan.shopservice.service.CarshopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -188,6 +189,15 @@ public class CarshopController {
         return list;
     }
     //登录
+    @PostMapping("login")
+
+    public Result login(@RequestParam String shopid,@RequestParam String password){
+        System.out.println(shopid+"11111111111");
+        System.out.println(password+"222222222222222");
+        Carshop carshop = new Carshop();
+        carshop.setShopid(shopid);
+        return carshopService.login(carshop,password);
+    }
 
 }
 
